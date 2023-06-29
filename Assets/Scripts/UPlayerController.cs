@@ -11,6 +11,9 @@ public class UPlayerController : MonoBehaviour
 	public int healthPoint;
 	public float playerSpeed;
 
+	public delegate void SimpleFunc();
+	public event SimpleFunc PlayerDeath;
+
 	private UGameManager GM;
 
 	private void Start()
@@ -31,8 +34,10 @@ public class UPlayerController : MonoBehaviour
 		if(other.tag == "Death Trigger")
 		{
 			Debug.Log("Death");
-			GM.PlayerLoseLife();
+			PlayerDeath?.Invoke();
+			Debug.Log("PreLoadScene");
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			Debug.Log("PastLoadScene");
 		}
 	}
 }

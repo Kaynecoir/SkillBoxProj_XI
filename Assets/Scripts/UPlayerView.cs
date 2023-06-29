@@ -21,6 +21,7 @@ public class UPlayerView : MonoBehaviour
 		{
 			Debug.Log(healthIcon[i].name + "+" + GM.countPlayerHealth);
 			healthIcon[i].sprite = i < GM.countPlayerHealth ? healthOn : healthOff;
+			Debug.Log(i < GM.countPlayerHealth ? "On" : "Off");
 		}
 	}
 }
