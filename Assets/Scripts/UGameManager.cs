@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UGameManager : MonoBehaviour
 {
 	public LevelData lvData;
+	public GameObject PauseBox, LoseBox;
 	public int countPlayerHealth, countPlayerMoney;
 	public delegate void SimpleFunction();
 	public event SimpleFunction Lose, Pause;
@@ -13,11 +14,16 @@ public class UGameManager : MonoBehaviour
 	private GameObject player;
 	private UPlayerController playerController;
 	private UPlayerView playerView;
+	private bool isPause;
 
 	private void Start()
 	{
 		Debug.Log("Start");
+
+		Lose += LoseGame;
+		Pause += PauseGame;
 		countPlayerHealth = lvData.CountPlayerHealth;
+
 		if(countPlayerHealth > 0)
 		{
 			player = GameObject.Find("Player");
@@ -28,7 +34,7 @@ public class UGameManager : MonoBehaviour
 		}
 		else
 		{
-
+			Lose?.Invoke();
 		}
 
 	}
@@ -37,10 +43,31 @@ public class UGameManager : MonoBehaviour
 
 	}
 
+	private void Update()
+	{
+		if(Input.GetKeyDown(KeyCode.Escape))
+		{
+			Pause?.Invoke();
+		}
+	}
+
 	public void PlayerLoseLife()
 	{
 		lvData.CountPlayerHealth--;
 		countPlayerHealth = lvData.CountPlayerHealth;
 		Debug.Log(countPlayerHealth);
 	}
+
+	public void LoseGame()
+	{
+		Debug.Log("Lose");
+	}
+
+	public void PauseGame()
+	{
+		Debug.Log("Pause");
+		SetPause(true);
+	}
+
+	public void SetPause(bool pause) => isPause = pause;
 }
