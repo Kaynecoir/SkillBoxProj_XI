@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class UPlayerController : MonoBehaviour
 {
@@ -23,10 +22,14 @@ public class UPlayerController : MonoBehaviour
 
 	private void Update()
 	{
-		float horizontalInput = Input.GetAxis("Horizontal");
-		float vertivalInput = Input.GetAxis("Vertical");
-		Vector3 inputDir = orientation.forward * vertivalInput + orientation.right * horizontalInput;
-		rb.velocity += inputDir * (playerSpeed / 100);
+		if (!GM.isPause)
+		{
+			float horizontalInput = Input.GetAxis("Horizontal");
+			float vertivalInput = Input.GetAxis("Vertical");
+			Vector3 inputDir = orientation.forward * vertivalInput + orientation.right * horizontalInput;
+			rb.velocity += inputDir * (playerSpeed / 100);
+
+		}
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -35,9 +38,6 @@ public class UPlayerController : MonoBehaviour
 		{
 			Debug.Log("Death");
 			PlayerDeath?.Invoke();
-			Debug.Log("PreLoadScene");
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-			Debug.Log("PastLoadScene");
 		}
 	}
 }
