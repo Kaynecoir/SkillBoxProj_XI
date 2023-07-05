@@ -9,6 +9,7 @@ public class UMenuManager : MonoBehaviour
 	public void LoadLevel(int lv)
 	{
 		levelDatas[lv - 1].CountPlayerHealth = 5;
-		SceneManager.LoadScene(lv);
+		levelDatas[lv - 1].StartPosition = Vector3.zero;
+		SceneManager.LoadScene(levelDatas[lv-1].IndexLevel);
 	}
 }

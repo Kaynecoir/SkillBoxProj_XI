@@ -46,7 +46,7 @@ public class UPlayerController : MonoBehaviour
 			Debug.Log("Check Point");
 			PlayerCheck?.Invoke(other.transform.position);
 		}
-		if(other.tag == "Win Line")
+		if(other.tag == "Win Point")
 		{
 			Debug.Log("Win");
 			PlayerWin?.Invoke();

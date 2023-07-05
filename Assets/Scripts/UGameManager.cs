@@ -26,12 +26,14 @@ public class UGameManager : MonoBehaviour
 		Lose += LoseGame;
 		Pause += PauseGame;
 		countPlayerHealth = lvData.CountPlayerHealth;
+		levelIndex = lvData.IndexLevel;
 
+		player = GameObject.Find("Player");
+		playerController = player.GetComponent<UPlayerController>();
+		playerView = player.GetComponent<UPlayerView>();
+		
 		if(countPlayerHealth > 0)
 		{
-			player = GameObject.Find("Player");
-			playerController = player.GetComponent<UPlayerController>();
-			playerView = player.GetComponent<UPlayerView>();
 			playerController.PlayerDeath += PlayerLoseLife;
 			playerController.PlayerWin += WinGame;
 			playerController.PlayerCheck += ChangeStartPosition;
@@ -40,7 +42,9 @@ public class UGameManager : MonoBehaviour
 		}
 		else
 		{
-			Lose?.Invoke();
+			Debug.Log("LoseInStart");
+			playerView.SetHelth();
+			LoseGame();
 		}
 
 	}
@@ -67,24 +71,31 @@ public class UGameManager : MonoBehaviour
 	public void LoseGame()
 	{
 		Debug.Log("Lose");
-		SetPause(true);
+		SetStopGame(true);
 		LoseBox.SetActive(true);
 	}
 	public void WinGame()
 	{
 		Debug.Log("Win");
-		SetPause(true);
+		SetStopGame(true);
 		WinBox.SetActive(true);
 	}
 
 	public void PauseGame()
 	{
 		Debug.Log("Pause");
-		SetPause(true);
+		SetStopGame(true);
+		PauseBox.SetActive(true);
 	}
-	public void SetPause(bool act)
+	public void SetStopGame(bool act)
 	{
-		PauseBox.SetActive(act);
+		if(!act)
+		{
+			PauseBox.SetActive(act);
+			WinBox.SetActive(act);
+			LoseBox.SetActive(act);
+		}
+		playerController.rb.velocity = Vector3.zero;
 		isPause = act;
 		Cursor.visible = act;
 		Cursor.lockState = act ? CursorLockMode.Confined : CursorLockMode.Locked;

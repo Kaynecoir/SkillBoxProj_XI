@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   indexLevel: 1
-  countPlayerHealth: 5
-  startPosition: {x: 0, y: 0, z: 0}
+  countPlayerHealth: 0
+  startPosition: {x: 0, y: 3, z: -26}

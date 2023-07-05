@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24914b4f427c6a24aaa6ce5e08b83949, type: 3}
   m_Name: Level2
   m_EditorClassIdentifier: 
-  countPlayerHealth: 5
+  indexLevel: 2
+  countPlayerHealth: 4
+  startPosition: {x: 0, y: 0, z: 0}
