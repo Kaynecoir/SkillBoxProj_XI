@@ -33,6 +33,9 @@ public class UGameManager : MonoBehaviour
 			playerController = player.GetComponent<UPlayerController>();
 			playerView = player.GetComponent<UPlayerView>();
 			playerController.PlayerDeath += PlayerLoseLife;
+			playerController.PlayerWin += WinGame;
+			playerController.PlayerCheck += ChangeStartPosition;
+			StartInPosition();
 			playerView.SetHelth();
 		}
 		else
@@ -65,11 +68,13 @@ public class UGameManager : MonoBehaviour
 	{
 		Debug.Log("Lose");
 		SetPause(true);
+		LoseBox.SetActive(true);
 	}
 	public void WinGame()
 	{
 		Debug.Log("Win");
 		SetPause(true);
+		WinBox.SetActive(true);
 	}
 
 	public void PauseGame()
@@ -83,6 +88,15 @@ public class UGameManager : MonoBehaviour
 		isPause = act;
 		Cursor.visible = act;
 		Cursor.lockState = act ? CursorLockMode.Confined : CursorLockMode.Locked;
+	}
+	public Vector3 ChangeStartPosition(Vector3 pos)
+	{
+		lvData.StartPosition = pos;
+		return pos;
+	}
+	public void StartInPosition()
+	{
+		player.transform.position = lvData.StartPosition;
 	}
 	public void LoadScene(int lv = 0) => SceneManager.LoadScene(lv);
 	

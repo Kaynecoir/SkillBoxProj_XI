@@ -5,6 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "LevelData", menuName = "UserTool/LevelData", order = 2)]
 public class LevelData : ScriptableObject
 {
+	[SerializeField] private int indexLevel;
 	[SerializeField] private int countPlayerHealth;
+	[SerializeField] private Vector3 startPosition;
+	public int IndexLevel { get => indexLevel; }
 	public int CountPlayerHealth { get => countPlayerHealth; set => countPlayerHealth = value; }
+	public Vector3 StartPosition { get => startPosition; set => startPosition = value; }
 }

@@ -11,7 +11,9 @@ public class UPlayerController : MonoBehaviour
 	public float playerSpeed;
 
 	public delegate void SimpleFunc();
-	public event SimpleFunc PlayerDeath;
+	public delegate Vector3 PositionFunc(Vector3 pos);
+	public event SimpleFunc PlayerDeath, PlayerWin;
+	public event PositionFunc PlayerCheck;
 
 	private UGameManager GM;
 
@@ -38,6 +40,16 @@ public class UPlayerController : MonoBehaviour
 		{
 			Debug.Log("Death");
 			PlayerDeath?.Invoke();
+		}
+		if(other.tag == "Check Point")
+		{
+			Debug.Log("Check Point");
+			PlayerCheck?.Invoke(other.transform.position);
+		}
+		if(other.tag == "Win Line")
+		{
+			Debug.Log("Win");
+			PlayerWin?.Invoke();
 		}
 	}
 }
