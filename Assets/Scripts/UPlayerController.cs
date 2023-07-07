@@ -20,6 +20,8 @@ public class UPlayerController : MonoBehaviour
 	private void Start()
 	{
 		GM = GameObject.Find("GameManager").GetComponent<UGameManager>();
+		rb.mass = GM.lvData.PlayerData.PlayerMass;
+		playerSpeed = GM.lvData.PlayerData.PlayerSpeed;
 	}
 
 	private void Update()
@@ -29,7 +31,7 @@ public class UPlayerController : MonoBehaviour
 			float horizontalInput = Input.GetAxis("Horizontal");
 			float vertivalInput = Input.GetAxis("Vertical");
 			Vector3 inputDir = orientation.forward * vertivalInput + orientation.right * horizontalInput;
-			rb.velocity += inputDir * (playerSpeed / 100);
+			rb.AddForce(inputDir * playerSpeed, ForceMode.Force);
 
 		}
 	}

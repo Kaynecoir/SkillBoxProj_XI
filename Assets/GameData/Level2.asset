@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Level2
   m_EditorClassIdentifier: 
   indexLevel: 2
-  countPlayerHealth: 4
+  countPlayerHealth: 3
   startPosition: {x: 0, y: 0, z: 0}
+  playerData: {fileID: 11400000, guid: 1c7e6d87d7f0de74dbe3502dfb1ae336, type: 2}
