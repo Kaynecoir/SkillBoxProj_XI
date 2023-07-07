@@ -8,6 +8,7 @@ TagManager:
   - Death Trigger
   - Check Point
   - Win Point
+  - Actived Object
   layers:
   - Default
   - TransparentFX

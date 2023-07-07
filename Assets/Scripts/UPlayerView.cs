@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UPlayerView : MonoBehaviour
 {
+	public Sprite useSprite;
+	public Image useImage;
 	public Sprite healthOn, healthOff;
 	public Image[] healthIcon;
 
