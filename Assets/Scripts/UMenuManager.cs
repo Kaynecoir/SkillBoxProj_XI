@@ -12,4 +12,8 @@ public class UMenuManager : MonoBehaviour
 		levelDatas[lv - 1].StartPosition = Vector3.zero;
 		SceneManager.LoadScene(levelDatas[lv-1].IndexLevel);
 	}
+	public void Quit()
+	{
+		Application.Quit();
+	}
 }
