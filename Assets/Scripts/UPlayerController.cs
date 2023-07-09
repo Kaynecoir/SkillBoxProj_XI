@@ -16,15 +16,17 @@ public class UPlayerController : MonoBehaviour
 	public event PositionFunc PlayerCheck;
 
 	private UGameManager GM;
+	private UPlayerView playerView;
 
 	private void Start()
 	{
 		GM = GameObject.Find("GameManager").GetComponent<UGameManager>();
+		playerView = GetComponent<UPlayerView>();
 		rb.mass = GM.lvData.PlayerData.PlayerMass;
 		playerSpeed = GM.lvData.PlayerData.PlayerSpeed;
 	}
 
-	private void Update()
+	private void FixedUpdate()
 	{
 		if (!GM.isPause)
 		{
@@ -47,6 +49,7 @@ public class UPlayerController : MonoBehaviour
 		{
 			Debug.Log("Check Point");
 			PlayerCheck?.Invoke(other.transform.position);
+			other.GetComponent<ChekPointScr>().Play();
 		}
 		if(other.tag == "Win Point")
 		{

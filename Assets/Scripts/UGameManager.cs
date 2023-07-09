@@ -65,7 +65,9 @@ public class UGameManager : MonoBehaviour
 	{
 		lvData.CountPlayerHealth--;
 		countPlayerHealth = lvData.CountPlayerHealth;
-		LoadScene(levelIndex);
+		player.SetActive(false);
+		//LoadScene(levelIndex);
+		StartCoroutine(LoadScene(levelIndex, 1));
 	}
 
 	public void LoseGame()
@@ -109,6 +111,13 @@ public class UGameManager : MonoBehaviour
 	{
 		player.transform.position = lvData.StartPosition;
 	}
-	public void LoadScene(int lv = 0) => SceneManager.LoadScene(lv);
-	
+	public void LoadScene(int lv = 0)
+	{
+		SceneManager.LoadScene(lv);
+	}
+	public IEnumerator LoadScene(int lv = 0, float sec = 0)
+	{
+		yield return new WaitForSeconds(sec); 
+		SceneManager.LoadScene(lv);
+	}
 }

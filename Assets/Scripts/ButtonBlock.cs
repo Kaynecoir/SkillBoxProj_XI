@@ -8,6 +8,7 @@ public class ButtonBlock : MonoBehaviour
 	public Material matOff, matOn;
 	public Renderer renderer;
 	public Animator animator;
+	public string boolName;
 	private void Start()
 	{
 		
@@ -16,12 +17,12 @@ public class ButtonBlock : MonoBehaviour
 	private void OnCollisionEnter(Collision collision)
 	{
 		renderer.material = matOn;
-		animator.SetBool("isUpBridge", true);
+		animator.SetBool(boolName, true);
 	}
 
 	private void OnCollisionExit(Collision collision)
 	{
 		renderer.material = matOff;
-		animator.SetBool("isUpBridge", false);
+		animator.SetBool(boolName, false);
 	}
 }

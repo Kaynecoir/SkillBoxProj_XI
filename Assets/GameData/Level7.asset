@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24914b4f427c6a24aaa6ce5e08b83949, type: 3}
-  m_Name: Level3
+  m_Name: Level7
   m_EditorClassIdentifier: 
-  indexLevel: 3
-  countPlayerHealth: 4
-  startPosition: {x: 0, y: 1, z: 32}
+  indexLevel: 7
+  countPlayerHealth: 1
+  startPosition: {x: 0, y: 0, z: 0}
   playerData: {fileID: 11400000, guid: 1c7e6d87d7f0de74dbe3502dfb1ae336, type: 2}

@@ -523,6 +523,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LargeCube
       objectReference: {fileID: 0}
+    - target: {fileID: 747126437068801466, guid: 2b84c9202f5739140a28b6961560c2b9, type: 3}
+      propertyPath: m_Mass
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 747126437068801467, guid: 2b84c9202f5739140a28b6961560c2b9, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1885,6 +1889,7 @@ MonoBehaviour:
   matOn: {fileID: 2100000, guid: 8797d658a09a2dd4caed6b9a84d51ce0, type: 2}
   renderer: {fileID: 1742309684}
   animator: {fileID: 2119230109}
+  boolName: isUpBridge
 --- !u!65 &1742309683
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4677,7 +4682,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7484143871082954286}
-  m_LocalRotation: {x: 0.17819066, y: -0.000000043011827, z: 0.000000007788961, w: 0.983996}
+  m_LocalRotation: {x: 0.17819066, y: -0.00000004301183, z: 0.000000007788961, w: 0.983996}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5228,7 +5233,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7484143871345548549}
-  m_LocalRotation: {x: 0.000000007788961, y: 0.983996, z: -0.17819066, w: 0.000000043011827}
+  m_LocalRotation: {x: 0.000000007788961, y: 0.983996, z: -0.17819066, w: 0.00000004301183}
   m_LocalPosition: {x: -0.0000006119594, y: 3, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5837,7 +5842,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7484143871774635687}
-  m_LocalRotation: {x: 0.15531825, y: -0.000000051679717, z: 0.000000008125409, w: 0.9878645}
+  m_LocalRotation: {x: 0.15531823, y: -0.000000034682145, z: 0.000000005452944, w: 0.9878645}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6326,6 +6331,7 @@ MonoBehaviour:
   - {fileID: 7484143870674142419}
   - {fileID: 7484143870726123151}
   - {fileID: 7484143871811409232}
+  particleSystem: {fileID: 0}
 --- !u!4 &7484143871859997193
 Transform:
   m_ObjectHideFlags: 0
