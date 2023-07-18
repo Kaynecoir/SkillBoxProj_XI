@@ -788,7 +788,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 252830962}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1027719029}
+        m_TargetAssemblyTypeName: UMenuManager, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &252830962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2594,6 +2606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1027719030}
   - component: {fileID: 1027719029}
+  - component: {fileID: 1027719031}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -2613,13 +2626,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc1421e8fb979934a9ee00fd37a7376d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelDatas:
-  - {fileID: 11400000, guid: d418f3e0dc5797b45ba59adedf5e2439, type: 2}
-  - {fileID: 11400000, guid: 4a8010eae5513d94889aed6832d803e1, type: 2}
-  - {fileID: 11400000, guid: c3eb5b72bffcc3842a4c725872c459c8, type: 2}
-  - {fileID: 11400000, guid: e63f4c3cf4bb69c4cb99a0fa0e1170a6, type: 2}
-  - {fileID: 11400000, guid: cdf5b4fbbf4229a46b037f979c4fde84, type: 2}
-  - {fileID: 11400000, guid: f04c0c723e4d41f4c8e9868c11f2079b, type: 2}
+  levelDatas: {fileID: 1027719031}
+  secretButton: {fileID: 252830959}
+  secretLevel: {fileID: 11400000, guid: bf4b5afa6c2ac0b41a680eef59d72fe5, type: 2}
 --- !u!4 &1027719030
 Transform:
   m_ObjectHideFlags: 0
@@ -2635,6 +2644,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1027719031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027719028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a1d5c5e83c0f944a3c55c528ceb858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelsInfo:
+  - {fileID: 11400000, guid: d418f3e0dc5797b45ba59adedf5e2439, type: 2}
+  - {fileID: 11400000, guid: 4a8010eae5513d94889aed6832d803e1, type: 2}
+  - {fileID: 11400000, guid: c3eb5b72bffcc3842a4c725872c459c8, type: 2}
+  - {fileID: 11400000, guid: e63f4c3cf4bb69c4cb99a0fa0e1170a6, type: 2}
+  - {fileID: 11400000, guid: cdf5b4fbbf4229a46b037f979c4fde84, type: 2}
+  - {fileID: 11400000, guid: f04c0c723e4d41f4c8e9868c11f2079b, type: 2}
 --- !u!1 &1116783083
 GameObject:
   m_ObjectHideFlags: 0

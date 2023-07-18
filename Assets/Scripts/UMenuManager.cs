@@ -5,12 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class UMenuManager : MonoBehaviour
 {
-	public LevelData[] levelDatas;
+	public LevelSystem levelDatas;
+	public GameObject secretButton;
+	public LevelData secretLevel;
+	public void Awake()
+	{
+		if(levelDatas.IsAllComplete())
+		{
+			secretButton.SetActive(true);
+			levelDatas.levelsInfo.Add(secretLevel);
+		}
+	}
 	public void LoadLevel(int lv)
 	{
-		levelDatas[lv - 1].CountPlayerHealth = 5;
-		levelDatas[lv - 1].StartPosition = Vector3.zero;
-		SceneManager.LoadScene(levelDatas[lv-1].IndexLevel);
+		levelDatas.levelsInfo[lv - 1].CountPlayerHealth = 5;
+		levelDatas.levelsInfo[lv - 1].StartPosition = Vector3.zero;
+		SceneManager.LoadScene(levelDatas.levelsInfo[lv-1].IndexLevel);
 	}
 	public void Quit()
 	{

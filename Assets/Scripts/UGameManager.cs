@@ -81,6 +81,11 @@ public class UGameManager : MonoBehaviour
 		Debug.Log("Win");
 		SetStopGame(true);
 		WinBox.SetActive(true);
+		lvData.IsComplete = true;
+		if(lvData.IndexLevel == 7)
+		{
+
+		}
 	}
 
 	public void PauseGame()

@@ -9,7 +9,7 @@ public class UPlayerView : MonoBehaviour
 	public Image useImage;
 	public Sprite healthOn, healthOff;
 	public Image[] healthIcon;
-	public ParticleSystem particleSystem;
+	public List<ParticleSystem> particleSystemList;
 
 	private UGameManager GM;
 	private UPlayerController playerController;
@@ -18,12 +18,16 @@ public class UPlayerView : MonoBehaviour
 		GM = GameObject.Find("GameManager").GetComponent<UGameManager>();
 		playerController = GetComponent<UPlayerController>();
 		playerController.PlayerDeath += DeathBoom;
+		playerController.PlayerWin += ParticalSystemPlay;
 		healthIcon = GameObject.Find("Canvas/InfoBar (Health)").GetComponentsInChildren<Image>();
 	}
 
 	private void Update()
 	{
-		if (particleSystem != null) particleSystem.transform.position = transform.position;
+		if (particleSystemList.Count != 0)
+		{
+			foreach(ParticleSystem ps in particleSystemList)	ps.transform.position = transform.position;
+		}
 	}
 
 	public void SetHelth()
@@ -38,6 +42,17 @@ public class UPlayerView : MonoBehaviour
 
 	private void DeathBoom()
 	{
-		if (particleSystem != null) particleSystem.Play();
+		if (particleSystemList.Count != 0)
+		{
+			particleSystemList[0].Play();
+		}
+	}
+
+	private void ParticalSystemPlay()
+	{
+		if (particleSystemList.Count != 0)
+		{
+			foreach (ParticleSystem ps in particleSystemList) ps.Play();
+		}
 	}
 }
